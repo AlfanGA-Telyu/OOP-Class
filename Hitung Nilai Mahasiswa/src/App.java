@@ -27,7 +27,7 @@ public class App {
         System.out.println("");
         System.out.println("Nama: " + mahasiswa1.getNama());
         System.out.println("NIM: " + mahasiswa1.getNIM());
-        System.out.println("");
-        System.out.println("Nilai  Matakuliah Pemograman Berorientasi Objek: " + hasil);
+        // System.out.println("");
+        System.out.println("Nilai  Matakuliah Pemograman Berorientasi Objek:\n" + hasil);
     }
 }
