@@ -1,24 +1,52 @@
-import Formulir.FormulirDosen;
-import Formulir.FormulirMahasiswa;
+import java.util.Scanner;
+
+import Kendaraan.Mobil;
+import Kendaraan.Motor;
 
 public class Main {
     public static void main(String[] args) {
-        FormulirMahasiswa peserta_01 = new FormulirMahasiswa();
-        peserta_01.nama = "Alfan";
-        peserta_01.nim = "9999";
-        // System.out.println("Nama Mahasiswa: " + peserta_01.nama);
-        // System.out.println("Nama Mahasiswa: " + peserta_01.nim);
-        peserta_01.CaraPembayaran();
-        peserta_01.TataTertibAcara();
+        Scanner scanner = new Scanner(System.in);
+        Mobil mobil1 = new Mobil("Pajero", "Mitsubishi", "500.000.000", "SUV");
+        Motor motor1 = new Motor("Vario", "Honda", "30.000.000", "150cc");
 
-        System.out.println();
+        // menu
+        System.out.println("====================");
+        System.out.print("Jenis kendaraan apa yang ingin anda beli ? : ");
+        String input1 = scanner.nextLine();
+        if (input1.equals("mobil")) {
+            System.out.println("anda akan membeli mobil " + mobil1.nama + " dengan harga " + mobil1.harga);
+            mobil1.CaraPembelian();
+            System.out.print("apakah anda yakin ? (y/n) : ");
+            String input2 = scanner.nextLine();
+            if (input2.equals("y")) {
+                System.out.println();
+                mobil1.Membeli();
+                mobil1.CheckMerkMobil();
+                System.out.println("=====[Terimakasih Telah Membeli]=====");
+            } else if (input2.equals("n")) {
+                System.exit(0);
+            }
 
-        FormulirDosen peserta_02 = new FormulirDosen();
-        peserta_02.nama = "Alifio";
-        peserta_02.KodeDosen = "12345";
-        // System.out.println("Nama Dosen: " + peserta_02.nama);
-        // System.out.println("Nama Kode Dosen : " + peserta_02.KodeDosen);
-        peserta_02.CaraPembayaran();
-        peserta_02.TataTertibAcara();
+        } else if (input1.equals("motor")) {
+            System.out.println("anda akan membeli motor " + motor1.nama + " dengan harga " + motor1.harga);
+            motor1.CaraPembelian();
+            System.out.print("apakah anda yakin ? (y/n) : ");
+            String input2 = scanner.nextLine();
+            if (input2.equals("y")) {
+                System.out.println();
+                motor1.Membeli();
+                motor1.CheckKapasitasMotor();
+                System.out.println("=====[Terimakasih Telah Membeli]=====");
+            } else if (input2.equals("n")) {
+                System.exit(0);
+            }
+
+        } else {
+            System.out.println("Kendaraan tidak ada");
+            System.exit(0);
+
+        }
+
+        scanner.close();
     }
 }
