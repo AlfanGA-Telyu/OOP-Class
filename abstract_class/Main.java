@@ -15,7 +15,11 @@ public class Main {
         String input1 = scanner.nextLine();
         if (input1.equals("mobil")) {
             System.out.println("anda akan membeli mobil " + mobil1.nama + " dengan harga " + mobil1.harga);
+
+            // pemanggilan overriding
             mobil1.CaraPembelian();
+
+            System.out.println();
             System.out.print("apakah anda yakin ? (y/n) : ");
             String input2 = scanner.nextLine();
             if (input2.equals("y")) {
@@ -29,13 +33,26 @@ public class Main {
 
         } else if (input1.equals("motor")) {
             System.out.println("anda akan membeli motor " + motor1.nama + " dengan harga " + motor1.harga);
+
+            // pemanggilan overriding
             motor1.CaraPembelian();
+
+            System.out.println();
             System.out.print("apakah anda yakin ? (y/n) : ");
             String input2 = scanner.nextLine();
             if (input2.equals("y")) {
                 System.out.println();
                 motor1.Membeli();
                 motor1.CheckKapasitasMotor();
+
+                // bentuk pertama
+                System.out.println("Info Cicilan: ");
+                motor1.Cicil(motor1.harga, "3");
+
+                // bentuk kedua
+                motor1.Cicil(motor1.harga, "3", motor1.nama);
+
+                System.out.println();
                 System.out.println("=====[Terimakasih Telah Membeli]=====");
             } else if (input2.equals("n")) {
                 System.exit(0);

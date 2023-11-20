@@ -12,6 +12,13 @@ public class Mobil extends Kendaraan {
         System.out.println("Jenis mobil ini adalah: " + jenismobil);
     }
 
+    // pembuatan overriding
+    @Override
+    public void CaraPembelian() {
+        super.CaraPembelian();
+        System.out.println("Anda memilih kendaraan jenis mobil");
+    }
+
     public Mobil(String nama, String produsen, String harga, String jenismobil) {
         this.nama = nama;
         this.produsen = produsen;
